@@ -9,7 +9,6 @@ internal class MainPagerAdapter(activity: FragmentActivity) : FragmentStatePager
 
     private val fragments = arrayOf(
         GifSourcesFragment(),
-        GifTextViewFragment(),
         GifTextureFragment(),
         ImageSpanFragment(),
         AnimationControlFragment(),
