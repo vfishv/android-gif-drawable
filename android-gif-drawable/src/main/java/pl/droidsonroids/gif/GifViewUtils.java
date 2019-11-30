@@ -7,6 +7,8 @@ import android.net.Uri;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RawRes;
+
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -56,7 +58,12 @@ final class GifViewUtils {
 				if (isSrc) {
 					view.setImageDrawable(d);
 				} else {
-					view.setBackground(d);
+					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+						view.setBackground(d);
+					}
+					else {
+						view.setBackgroundDrawable(d);
+					}
 				}
 				return true;
 			} catch (IOException | Resources.NotFoundException ignored) {
